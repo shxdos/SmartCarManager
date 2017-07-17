@@ -3,6 +3,7 @@ package com.shx.smartcarmanager.base
 import android.graphics.drawable.Drawable
 import android.support.v7.widget.Toolbar
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import com.shx.smartcarmanager.R
 
@@ -13,7 +14,7 @@ class ToolBarView {
     private var mToolBar: Toolbar? = null
     private var titleView: TextView? = null
     private var rightView: TextView? = null
-
+    private var rightImage:ImageView?=null
     constructor(view: View?) {
         if (view == null) {
             return
@@ -21,6 +22,7 @@ class ToolBarView {
         mToolBar = view as Toolbar
         titleView = view.findViewById(R.id.title) as TextView
         rightView=view.findViewById(R.id.tv_right)as TextView
+        rightImage=view.findViewById(R.id.iv_right) as ImageView
     }
 
     /**
@@ -46,6 +48,9 @@ class ToolBarView {
 
     fun setRightText(str: String) {
         rightView?.text=str
+    }
+    fun setRigImageView(drawable: Drawable){
+        rightImage?.setImageDrawable(drawable)
     }
 
 }

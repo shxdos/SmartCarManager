@@ -1,0 +1,12 @@
+<resources>
+    <dimen name="actionbar_height">50dp</dimen>
+    <dimen name="textsize_22">22dp</dimen>
+    <dimen name="textsize_24">24dp</dimen>
+    <dimen name="textsize_10">10dp</dimen>
+    <dimen name="textsize_14">14dp</dimen>
+    <dimen name="textsize_12">12dp</dimen>
+    <dimen name="textsize_16">16dp</dimen>
+    <dimen name="textsize_18">18dp</dimen>
+    <dimen name="textsize_20">20dp</dimen>
+    <dimen name="textsize_11">11dp</dimen>
+</resources>
