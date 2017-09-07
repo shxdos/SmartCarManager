@@ -14,6 +14,11 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:name=".base.BaseApplication"
         android:allowBackup="true"
@@ -27,6 +32,11 @@
             android:value="MX1olFnlzZrwE7M5XF8VeA9ZDfm3HilT" />
 
         <activity android:name=".activity.MainActivity">
+
+        </activity>
+        <activity
+            android:name=".activity.LoginActivity"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,6 +54,7 @@
             android:process=":remote" />
         <service android:name=".base.LocationService" />
         <service android:name=".base.TranceService" />
+
 
     </application>
 
