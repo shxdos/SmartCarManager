@@ -12,14 +12,18 @@ import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.shx.smartcarmanager.R;
+import com.shx.smartcarmanager.exception.HttpTrowable;
+import com.shx.smartcarmanager.libs.http.HttpCallBack;
+import com.shx.smartcarmanager.libs.http.ZCResponse;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Created by 邵鸿轩 on 2017/6/14.
  */
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity implements HttpCallBack {
     private final int SDK_PERMISSION_REQUEST = 127;
     private String permissionInfo;
     private static final String TAG = BaseActivity.class.getSimpleName();
@@ -99,4 +103,18 @@ public class BaseActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean doSuccess(ZCResponse respose, String requestUrl) {
+        return false;
+    }
+
+    @Override
+    public boolean doFaild(HttpTrowable error, Map<String, String> requestParams, String requestUrl) {
+        return false;
+    }
+
+    @Override
+    public boolean httpCallBackPreFilter(String result, String method) {
+        return false;
+    }
 }
