@@ -6,7 +6,7 @@ package com.shx.smartcarmanager.libs.http;
 public class ZCResponse {
 //    {"total":0,"rows":"","error":"","errorCode":0,"success":true}
     private Integer total;
-    private Integer rows;
+    private String rows;
     private String error;
     private String errorCode;
     private boolean success;
@@ -19,11 +19,11 @@ public class ZCResponse {
         this.total = total;
     }
 
-    public Integer getRows() {
+    public String getRows() {
         return rows;
     }
 
-    public void setRows(Integer rows) {
+    public void setRows(String rows) {
         this.rows = rows;
     }
 
