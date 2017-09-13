@@ -1,10 +1,12 @@
 package com.shx.smartcarmanager.entity
 
+import java.io.Serializable
+
 /**
  * Created by 邵鸿轩 on 2017/9/11.
  */
 
-class Community {
+class Community : Serializable {
 
     /**
      * id : 3a2c539f-bc4b-4ad9-8d1b-c5957f094c32

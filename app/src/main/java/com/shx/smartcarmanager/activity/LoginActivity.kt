@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.EditText
 import com.shx.smartcarmanager.R
 import com.shx.smartcarmanager.base.BaseActivity
-import com.shx.smartcarmanager.fragment.CommunityListActivity
 import com.shx.smartcarmanager.libs.http.RequestCenter
 import com.shx.smartcarmanager.libs.http.ZCResponse
 

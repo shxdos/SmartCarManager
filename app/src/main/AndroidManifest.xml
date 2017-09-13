@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
@@ -31,19 +31,15 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="MX1olFnlzZrwE7M5XF8VeA9ZDfm3HilT" />
 
-        <activity android:name=".activity.MainActivity">
-
-        </activity>
-        <activity
-            android:name=".activity.LoginActivity"
-            >
+        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".fragment.CommunityListActivity"></activity>
+        <activity android:name=".activity.CommunityListActivity" />
 
         <service
             android:name="com.baidu.location.f"
@@ -56,7 +52,7 @@
         <service android:name=".base.LocationService" />
         <service android:name=".base.TranceService" />
 
-
+        <activity android:name=".activity.CommunityDetailsActivity"></activity>
     </application>
 
 </manifest>

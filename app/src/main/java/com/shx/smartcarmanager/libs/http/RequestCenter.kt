@@ -6,6 +6,7 @@ package com.shx.smartcarmanager.libs.http
 object RequestCenter {
     val login_url: String = "/login/valid"
     val communityList_url:String="/area/community/list"
+    val enclosure_url:String="/area/community/enclosure/get"
     /**
      * 登录
      */
@@ -31,4 +32,12 @@ object RequestCenter {
 
     }
 
+    /**
+     * 获取围栏信息
+     */
+    fun getEnclosure(communityId:String,callBack: HttpCallBack){
+        var params: HashMap<String, String> = HashMap()
+        params["cid"]=communityId
+        HttpManager.getInstance().doGet(enclosure_url, params, callBack)
+    }
 }
