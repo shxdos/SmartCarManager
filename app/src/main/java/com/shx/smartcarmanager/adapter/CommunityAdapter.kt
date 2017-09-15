@@ -31,13 +31,18 @@ class CommunityAdapter constructor() : BaseAdapter() {
         if (convertView == null) {
             v = LayoutInflater.from(mContext).inflate(R.layout.item_community, null)
             holder = ViewHolder()
-            holder.communityName=v.findViewById(R.id.tv_name) as TextView
+            holder.communityName = v.findViewById(R.id.tv_name) as TextView
+            holder.address=v.findViewById(R.id.tv_address) as TextView
+            holder.communityType= v.findViewById(R.id.tv_type) as TextView
+            holder.area= v.findViewById(R.id.tv_area) as TextView
             v.tag = holder
         } else {
             v = convertView
             holder = v.tag as ViewHolder
         }
         holder.communityName!!.text = list!![position]?.name
+        holder.address!!.text=list!![position]?.address
+        holder.area!!.text=list!![position]?.area.toString()
         return v
     }
 
@@ -53,7 +58,10 @@ class CommunityAdapter constructor() : BaseAdapter() {
         return list!!.size
     }
 
-    class ViewHolder {
+    private class ViewHolder {
         var communityName: TextView? = null
+        var communityType: TextView? = null
+        var address: TextView? = null
+        var area: TextView? = null
     }
 }

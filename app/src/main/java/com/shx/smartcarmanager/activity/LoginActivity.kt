@@ -25,11 +25,11 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         mUserNameView = findViewById(R.id.user_name) as EditText
-
         mPasswordView = findViewById(R.id.password) as EditText
-
         mButtonLogin = findViewById(R.id.btn_login) as Button
         mButtonLogin!!.setOnClickListener(this)
+        mUserNameView!!.setText("admin")
+        mPasswordView!!.setText("admin")
     }
 
     override fun onClick(v: View?) {

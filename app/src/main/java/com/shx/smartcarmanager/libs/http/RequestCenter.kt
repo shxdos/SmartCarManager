@@ -7,6 +7,7 @@ object RequestCenter {
     val login_url: String = "/login/valid"
     val communityList_url:String="/area/community/list"
     val enclosure_url:String="/area/community/enclosure/get"
+    val dangersource_url:String="/area/dangersource/enclosure/list"
     /**
      * 登录
      */
@@ -32,6 +33,17 @@ object RequestCenter {
 
     }
 
+    /**
+     * 获取危险点
+     */
+    fun getDangersourceList(communityId: String,page:Int,rows:Int,callBack: HttpCallBack){
+        var params: HashMap<String, String> = HashMap()
+        params["id"]=communityId
+        params["page"]=page.toString()
+        params["rows"]=rows.toString()
+        HttpManager.getInstance().doGet(dangersource_url, params, callBack)
+
+    }
     /**
      * 获取围栏信息
      */
