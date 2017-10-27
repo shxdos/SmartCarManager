@@ -2,6 +2,7 @@ package com.shx.smartcarmanager.base
 
 import android.graphics.drawable.Drawable
 import android.support.v7.widget.Toolbar
+import android.view.OrientationEventListener
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -51,6 +52,9 @@ class ToolBarView {
     }
     fun setRigImageView(drawable: Drawable){
         rightImage?.setImageDrawable(drawable)
+    }
+    fun setRightImageListener(listener: View.OnClickListener){
+        rightImage?.setOnClickListener(listener)
     }
 
 }

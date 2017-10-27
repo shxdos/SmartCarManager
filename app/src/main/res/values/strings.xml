@@ -10,4 +10,5 @@
     <string name="prompt_password">密码</string>
     <string name="action_sign_in">登录</string>
     <string name="action_sign_in_short">登录</string>
+    <string name="text_loading">加载中</string>
 </resources>

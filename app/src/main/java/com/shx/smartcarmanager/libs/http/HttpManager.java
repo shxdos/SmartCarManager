@@ -13,12 +13,18 @@ import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.builder.GetBuilder;
 import com.zhy.http.okhttp.builder.PostFormBuilder;
 import com.zhy.http.okhttp.callback.Callback;
+import com.zhy.http.okhttp.cookie.store.PersistentCookieStore;
 import com.zhy.http.okhttp.log.LoggerInterceptor;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Response;
 
@@ -34,6 +40,20 @@ public class HttpManager {
                 .addInterceptor(new LoggerInterceptor(TAG))
                 .connectTimeout(3 * 10000L, TimeUnit.MILLISECONDS)
                 .readTimeout(3 * 10000L, TimeUnit.MILLISECONDS)
+                .cookieJar(new CookieJar() {
+//                    private final HashMap<HttpUrl, List<Cookie>> cookieStore = new HashMap<>();
+                    PersistentCookieStore store = new PersistentCookieStore(BaseApplication.getContext());//使用PersistentCookieStore替换之前的HashMap
+                    @Override
+                    public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
+                        store.add(url,cookies);
+                    }
+
+                    @Override
+                    public List<Cookie> loadForRequest(HttpUrl url) {
+                        List<Cookie> cookies = store.get(url);
+                        return cookies != null ? cookies : new ArrayList<Cookie>();
+                    }
+                })
                 .build();
         OkHttpUtils.initClient(okHttpClient);
 
@@ -62,18 +82,22 @@ public class HttpManager {
         }
 
         PostFormBuilder builder = OkHttpUtils.post();
-        builder.url(url);
+        builder.url(SystemConfig.BASE_HOST_RELEASE+url);
         for (String key : request.keySet()) {
             //userid+字段名称用base64编码+.jpg
             builder.addParams(key, request.get(key));
+
         }
 
         builder.addHeader("charset", "utf-8")
                 .tag(this)
+
                 .build()
+
                 .execute(new Callback() {
                     @Override
                     public Object parseNetworkResponse(okhttp3.Response response, int id) throws Exception {
+
                         return response.body().string();
                     }
 
@@ -115,6 +139,7 @@ public class HttpManager {
         GetBuilder builder = OkHttpUtils
                 .get();
         builder.url(SystemConfig.BASE_HOST_RELEASE+url);
+        builder.addHeader("charset", "utf-8");
         for (String key : request.keySet()) {
             builder.addParams(key, request.get(key));
         }

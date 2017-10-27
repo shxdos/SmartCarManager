@@ -23,4 +23,29 @@
         <!-- 设置toolbar 弹出菜单的字体大小-->
         <item name="android:textSize">15sp</item>
     </style>
+    <style name="Theme_Dialog" parent="@android:style/Theme.Holo.DialogWhenLarge">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是悬浮还是覆盖 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 是否有系统自带标题栏 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 背景是否变暗 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 去除黑色背景 -->
+        <item name="android:windowFullscreen">false</item>
+        <!-- 设置全屏 -->
+    </style>
+    <!-- ScrollView 通用样式 match_parent weight 1 -->
+    <style name="scrollview_fill">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:fillViewport">true</item>
+        <item name="android:scrollbars">none</item>
+    </style>
 </resources>

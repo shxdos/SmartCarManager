@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:context="com.shx.smartcarmanager.activity.AddDangerSourceActivity">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/textsize_14"
+            android:text="危险源名称" />
+       <EditText
+           android:id="@+id/et_dangername"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="@drawable/shape_rectangle"/>
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/textsize_14"
+        android:text="危险源类型" />
+
+        <ListView
+            android:id="@+id/lv_danger"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"></ListView>
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBlue"
+        android:textColor="@color/colorWhite"
+        android:text="确定"/>
+</LinearLayout>

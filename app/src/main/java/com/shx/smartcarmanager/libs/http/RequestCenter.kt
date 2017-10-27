@@ -4,10 +4,12 @@ package com.shx.smartcarmanager.libs.http
  * Created by 邵鸿轩 on 2017/9/11.
  */
 object RequestCenter {
-    val login_url: String = "/login/valid"
-    val communityList_url:String="/area/community/list"
-    val enclosure_url:String="/area/community/enclosure/get"
-    val dangersource_url:String="/area/dangersource/enclosure/list"
+    val login_url = "/login/valid"
+    val communityList_url="/area/community/list"
+    val enclosure_url="/area/community/enclosure/get"
+    val dangersource_url="/area/app/dangersource/list"
+    val saveDangerSource_url="/area/dangersource/save"
+    val dangersourcetype_url="/basic/danger/type/list"
     /**
      * 登录
      */
@@ -45,6 +47,25 @@ object RequestCenter {
 
     }
     /**
+     * 新增危险点
+     *        map["name"]=
+    map["communityId"]=
+    map["dangerSourceType"]=
+    map["icon"]=
+     */
+    fun SaveDangersource(cLatitude:String,cLongtide:String,cPoints:String,name:String,communityId:String,dangerSourceType:String,icon:String,callBack: HttpCallBack){
+        var params: HashMap<String, String> = HashMap()
+        params["cLatitude"]=cLatitude
+        params["cLongtide"]=cLongtide
+        params["cPoints"]=cPoints
+        params["name"]=name
+        params["communityId"]=communityId
+        params["dangerSourceType"]=dangerSourceType
+        params["icon"]=icon
+        HttpManager.getInstance().doGet(saveDangerSource_url, params, callBack)
+
+    }
+    /**
      * 获取围栏信息
      */
     fun getEnclosure(communityId:String,callBack: HttpCallBack){
@@ -52,4 +73,15 @@ object RequestCenter {
         params["cid"]=communityId
         HttpManager.getInstance().doGet(enclosure_url, params, callBack)
     }
+    /**
+     * 获取社区列表
+     */
+    fun getDangersourceType(page:Int,rows:Int,callBack: HttpCallBack){
+        var params: HashMap<String, String> = HashMap()
+        params["page"]=page.toString()
+        params["rows"]=rows.toString()
+        HttpManager.getInstance().doGet(dangersourcetype_url, params, callBack)
+
+    }
+
 }

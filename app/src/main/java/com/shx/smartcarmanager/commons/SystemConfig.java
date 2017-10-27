@@ -9,6 +9,6 @@ public class SystemConfig {
      */
     public static boolean LOGFLAG = true;
     public static boolean DEBUG = false;
-    public static final String BASE_HOST_RELEASE="http://192.168.1.126:8089";
+    public static final String BASE_HOST_RELEASE="http://192.168.1.127:8080";
 
 }
