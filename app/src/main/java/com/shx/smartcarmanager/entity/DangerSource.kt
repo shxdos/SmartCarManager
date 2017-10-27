@@ -6,34 +6,29 @@ import java.io.Serializable
  * Created by 邵鸿轩 on 2017/9/15.
  */
 
-class DangerSource : Serializable {
-
+class DangerSource :  Serializable {
     /**
-     * id : 6fa3d6b7-5032-4078-8b6a-6800be8995af
-     * name : wwww
-     * type : null
-     * cLatitude : 40.061325
-     * cLongtide : 116.309541
-     * cAddress : null
-     * cPoints : {"lng":116.309541,"lat":40.061325}
-     * createTime : 2017-09-13 13:28:41
-     * modifyTime : null
-     * createUserId : admin
-     * modifyUserId : null
-     * icon : null
+    "id":"13411e92-cf55-4bce-97d9-45dfe588ec5a",
+    "typeName":"高档",
+    "icon":"i2.png",
+    "danger_source_type":"WAR11",
+    "name":"ç§æå¤§å­¦",
+    "create_time":"2017-10-26 14:03:59",
+    "create_user_id":"admin",
+    "community_id":"4a299977-b914-48fa-b092-d8b35d62f2d8",
+    "c_points":"{\"lng\":116.301797,\"lat\":40.061615}
      */
-
-    var id: String? = null
-    var name: String? = null
-    var type: Any? = null
-    var cLatitude: Double ?= null
-    var cLongtide: Double ?=null
-    var cAddress: Any? = null
-    var cPoints: String? = null
-    var createTime: String? = null
-    var modifyTime: Any? = null
-    var createUserId: String? = null
-    var modifyUserId: Any? = null
-    var icon: Any? = null
-
+    var id:String?=null
+    var typeName:String?=null
+    var icon:String?=null
+    var danger_source_type:String?=null
+    var name:String?=null
+    var create_time:String?=null
+    var create_user_id:String?=null
+    var community_id:String?=null
+    var c_points:CPoints?=null
+    class CPoints{
+        var lng:Double?=null
+        var lat:Double?=null
+    }
 }
