@@ -62,7 +62,8 @@ class CommunityDetailsActivity : BaseActivity(), OnTraceListener, View.OnClickLi
         mArea = findViewById(R.id.tv_area) as TextView
         mType = findViewById(R.id.tv_type) as TextView
         mAddress = findViewById(R.id.tv_address) as TextView
-        topbar.setRightImageListener(this)
+        topbar!!.setRightImage(R.drawable.ic_add)
+        topbar!!.setRightImageListener(this)
         displayMap()
         if (mCommunity == null) {
             return
@@ -72,6 +73,7 @@ class CommunityDetailsActivity : BaseActivity(), OnTraceListener, View.OnClickLi
         mArea!!.setText(mCommunity!!.area.toString())
         mType!!.setText(mCommunity!!.communityType)
         mAddress!!.setText(mCommunity!!.address)
+        topbar!!.setTitle(mCommunity!!.name)
         RequestCenter.getEnclosure(mCommunity!!.id!!, this)
         RequestCenter.getDangersourceList(mCommunity!!.id!!, 1, 10, this)
     }
@@ -184,7 +186,7 @@ class CommunityDetailsActivity : BaseActivity(), OnTraceListener, View.OnClickLi
                     var createUser=view.findViewById(R.id.tv_createuser) as TextView
                     var dangerSource=bundle.getSerializable("info") as DangerSource
                     name.setText(dangerSource.name)
-                    type.setText(dangerSource.danger_source_type)
+                    type.setText(dangerSource.typeName)
                     createTime.setText(dangerSource.create_time)
                     createUser.setText(dangerSource.create_user_id)
 
@@ -245,7 +247,7 @@ class CommunityDetailsActivity : BaseActivity(), OnTraceListener, View.OnClickLi
 
     override fun onClick(v: View?) {
         when (v!!.id) {
-            R.id.iv_right -> {
+            R.id.iv_actionBarRight -> {
                 var intent = Intent(this, AddDangerSourceActivity::class.java)
                 intent.putExtra("currentLat", mCurrentLat.toString())
                 intent.putExtra("currentLng", mCurrentLng.toString())

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.shx.smartcarmanager.activity.CommunityDetailsActivity">
-    <include layout="@layout/layout_toolbar"></include>
+    <include layout="@layout/layout_topbar"></include>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

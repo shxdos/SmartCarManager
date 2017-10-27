@@ -30,6 +30,8 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         mButtonLogin!!.setOnClickListener(this)
         mUserNameView!!.setText("admin")
         mPasswordView!!.setText("admin")
+        topbar!!.setTitle("登录")
+        topbar!!.setLeftImageVisibility(View.GONE)
     }
 
     override fun onClick(v: View?) {

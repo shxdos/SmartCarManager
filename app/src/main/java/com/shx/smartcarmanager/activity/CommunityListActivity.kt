@@ -25,7 +25,7 @@ class CommunityListActivity : BaseActivity(), AdapterView.OnItemClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_communitylist)
-        topbar.setTitle("社区管理")
+        topbar!!.setTitle("社区管理")
         mListView = findViewById(R.id.lv_community) as ListView
         mAdapter = CommunityAdapter()
         mAdapter!!.mContext = this

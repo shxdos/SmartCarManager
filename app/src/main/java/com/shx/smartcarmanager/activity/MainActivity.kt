@@ -22,7 +22,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             getPersimmions()
         }
-        topbar.setTitle("汽车管家")
+        topbar!!.setTitle("汽车管家")
         mBottomNavigationView = findViewById(R.id.bottom_navigation_view) as BottomNavigationView
         mBottomNavigationView!!.setOnNavigationItemSelectedListener(this)
         mBottomNavigationView!!.itemTextColor = resources.getColorStateList(R.drawable.selector_color_menu)

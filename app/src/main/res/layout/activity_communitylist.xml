@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <include layout="@layout/layout_toolbar"></include>
+    <include layout="@layout/layout_topbar"></include>
     <ListView
         android:id="@+id/lv_community"
         android:layout_width="match_parent"

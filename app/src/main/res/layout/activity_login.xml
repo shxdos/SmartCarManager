@@ -6,7 +6,7 @@
     android:orientation="vertical"
     tools:context="com.shx.smartcarmanager.activity.LoginActivity">
 
-    <include layout="@layout/layout_toolbar"></include>
+    <include layout="@layout/layout_topbar"></include>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

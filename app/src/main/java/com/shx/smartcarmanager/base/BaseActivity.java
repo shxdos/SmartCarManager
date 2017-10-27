@@ -9,12 +9,14 @@ import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 
 import com.shx.smartcarmanager.R;
 import com.shx.smartcarmanager.exception.HttpTrowable;
 import com.shx.smartcarmanager.libs.http.HttpCallBack;
 import com.shx.smartcarmanager.libs.http.ZCResponse;
+import com.shx.smartcarmanager.view.ActionBarView;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -27,27 +29,24 @@ public class BaseActivity extends AppCompatActivity implements HttpCallBack {
     private final int SDK_PERMISSION_REQUEST = 127;
     private String permissionInfo;
     private static final String TAG = BaseActivity.class.getSimpleName();
-    private TextView mToolbarTitle;
-    private TextView mToolbarSubTitle;
-    private Toolbar mToolbar;
-    public ToolBarView toolbarVIew;
-
+    @Nullable
+    protected ActionBarView topbarView;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
 
     }
 
-    public ToolBarView getTopbar() {
-        if (toolbarVIew == null) {
-            mToolbar = (Toolbar) findViewById(R.id.toolbar);
-            toolbarVIew = new ToolBarView(mToolbar);
+    @Nullable
+    public ActionBarView getTopbar() {
+        if (topbarView == null) {
+            View view = findViewById(R.id.topbar_view);
+            if (view != null) {
+                topbarView = new ActionBarView(view);
+            }
         }
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        return toolbarVIew;
+        return topbarView;
     }
-
     @TargetApi(23)
     public void getPersimmions() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

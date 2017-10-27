@@ -1,5 +1,6 @@
 package com.shx.smartcarmanager.activity
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
@@ -47,6 +48,10 @@ class AddDangerSourceActivity : BaseActivity(), HttpCallBack, AdapterView.OnItem
         mCurrentLng= intent.getStringExtra("currentLng")
         mCommunityId=intent.getStringExtra("communityId")
         mDangerListView!!.setOnItemClickListener(this)
+        topbar!!.setLeftImage(R.drawable.icon_back)
+        topbar!!.setLeftImageListener (View.OnClickListener {view ->
+            onBackPressed()
+        })
     }
 
     override fun onBackPressed() {
